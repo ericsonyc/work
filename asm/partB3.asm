@@ -102,7 +102,7 @@ LEFT .FILL #1
 RIGHT .FILL #1
 NUMBER .FILL #1
 ORIGIN .FILL #0
-INIT_PTR .FILL x4000
+INIT_PTR .FILL x5000
 DATA .FILL #0
 CHARACTER .FILL x30
 ADDRESS .FILL #0
@@ -121,16 +121,42 @@ MAIN
 ;; setup caller portion of activation record
 ;; push function parameters
             ADD R3,R3,#-1
-            AND R1,R1,#1
-LOOPFibo            
-            STR   R1,R6,#0      ; Push step 2: copy param val=5 to stack
-            JSR   Fibonacci; call factorial
+         
+            STR   R3,R6,#0      ; Push step 2: copy param val=5 to stack
+            JSR   Fibonacci     ; call factorial
 
             LDR   R0,R6,#0      ; load result of call into a register
+            ST R0,ORIGIN
+            AND R1,R1,#0
+            LEA R1,DIVNUMBER
+            AND R2,R2,#0
+            ADD R2,R2,#1
+            AND R3,R3,#0
+            ADD R3,R3,#5
+RESULT
+            LD R0,ORIGIN
+            LDR R7,R1,#0
+            BR DIVISION
+TEMP
+            ADD R6,R6,#0
+            BRp TT
+            ADD R3,R3,#-1
+            ADD R1,R1,R2
+            BR RESULT
+TT
+            LD R0,ORIGIN
+            LDR R7,R1,#0 	    
+            BR DIVISION2
+JUDGE
+            LD R0,DIVRESULT
             LD R4,CHARACTER
             ADD R0,R0,R4
             OUT
-            BR LOOPFibo
+            LD R0,REMRESULT
+            ST R0,ORIGIN
+            ADD R1,R1,#1
+            ADD R3,R3,#-1
+            BRp TT
             HALT
 
 
@@ -211,5 +237,38 @@ ZERO
       ;LD  R0, REMRESULT   ; Load Remainder result into R0
       ;PUTC            ; Print it.
       BR TEMP
+
+DIVISION2
+      AND R5, R5, 0   ; Zero out R5 /This is the remainder
+      AND R6, R6, 0   ; Zero out R6 /This is the quotient
+      NOT R5, R7      ; Takes the inverse of 2nd input ->R3
+      ADD R5, R5 #1   ; Add one to the inverse (for 2s comp)
+
+LOOPD2
+      ADD R6, R6, #1  ; Add 1 to R6 repeatedly
+      ADD R0, R0, R5  ; Subtract input2 from R1
+      BRN NEGATIVE2
+      BRZ ZERO2
+      BRP LOOPD2
+
+NEGATIVE2
+      ADD R6, R6, #-1
+      ADD R5, R0, R7
+      ;LD R1,DECCONV
+      ;ADD R5,R5,R1
+      ;ADD R6,R6,R1
+      ;BR EEE2
+
+      ; Done with divison algorithm.
+ZERO2
+      ;LD  R1, DECCONV     ; Load Decimal converter
+      ;ADD R5, R5, R1  ; Convert back to ASCII
+      ;ADD R6, R6, R1  ; Convert back to ASCII
+
+;EEE2
+      ST  R5, REMRESULT   ; Store the remainder result
+      ST  R6, DIVRESULT   ; Store the division result.
+
+      BR JUDGE
 
 .END
