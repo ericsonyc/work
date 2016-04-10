@@ -1,0 +1,21 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	ASCII_ONE               3068
+//	ASCII_ZERO              3067
+//	BINARY                  3034
+//	COUNT                   3063
+//	ENTER                   3065
+//	EXIT                    3033
+//	INPUT                   3000
+//	LOOP                    3009
+//	LOOP_END                3030
+//	MASK_COUNT              3069
+//	MAX                     3062
+//	MEMORYSPACE             3057
+//	MESSAGE                 3039
+//	MIN                     3061
+//	NEWLINE                 3064
+//	NO_BIT                  302C
+//	NUMBER                  3066
+//	OUTPUT                  3013
+//	WHILE_LOOP              3021
