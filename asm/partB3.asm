@@ -82,10 +82,11 @@ SINCAL
       ADD R7,R7,R0
       AND R3,R3,#0
       ADD R3,R3,R7
+
+
         
 FIBONACCI
       LD R0,LEFT
-      ST R0,ORIGIN
       LD R1,RIGHT
       ADD R2,R0,R1
       ST R1,LEFT
@@ -95,18 +96,7 @@ FIBONACCI
       AND R2,R2,#0
       ADD R1,R1,#5
       ADD R2,R2,#1
-TT
-      LD R0,ORIGIN
-      LDR R7,R4,#0
-      BR DIVISION2
-JUDGE
-      LD R6,DIVRESULT
-      ADD R6,R6,#0
-      BRp OUTCONSOLE
-      ADD R4,R4,R2
-      ADD R1,R1,#-1
-      BRz OUTCONSOLE
-      BR TT
+      BR OUTCONSOLE     
 CC    
       LD R0,SPACE
       OUT
@@ -115,19 +105,20 @@ CC
       BR EXIT
 
 OUTCONSOLE
-      LD R0,ORIGIN
       LDR R7,R4,#0
       BR DIVISION
 TEMP
+      ADD R6,R6,#0
+      BRz ZEROC
       LD R0,DIVRESULT
       LD R7,DECCONV
       ADD R0,R0,R7
       OUT
-      ADD R1,R1,#-1
-      BRz CC
+ZEROC  ;ADD R2,R2,#1
       ADD R4,R4,R2
       LD R0,REMRESULT
-      ST R0,ORIGIN
+      ADD R1,R1,#-1
+      BRz CC
       BR OUTCONSOLE         
 
 DIVISION
@@ -168,39 +159,6 @@ ZERO
       ;PUTC            ; Print it.
       BR TEMP
 
-DIVISION2
-      AND R5, R5, 0   ; Zero out R5 /This is the remainder
-      AND R6, R6, 0   ; Zero out R6 /This is the quotient
-      NOT R5, R7      ; Takes the inverse of 2nd input ->R3
-      ADD R5, R5 #1   ; Add one to the inverse (for 2s comp)
-
-LOOPD2
-      ADD R6, R6, #1  ; Add 1 to R6 repeatedly
-      ADD R0, R0, R5  ; Subtract input2 from R1
-      BRN NEGATIVE2
-      BRZ ZERO2
-      BRP LOOPD2
-
-NEGATIVE2
-      ADD R6, R6, #-1
-      ADD R5, R0, R7
-      ;LD R1,DECCONV
-      ;ADD R5,R5,R1
-      ;ADD R6,R6,R1
-      ;BR EEE2
-
-      ; Done with divison algorithm.
-ZERO2
-      ;LD  R1, DECCONV     ; Load Decimal converter
-      ;ADD R5, R5, R1  ; Convert back to ASCII
-      ;ADD R6, R6, R1  ; Convert back to ASCII
-
-;EEE2
-      ST  R5, REMRESULT   ; Store the remainder result
-      ST  R6, DIVRESULT   ; Store the division result.
-
-      BR JUDGE
-
 
 EXIT 
       HALT
@@ -216,7 +174,6 @@ CHAR .FILL #-48
 LEFT .FILL #1
 RIGHT .FILL #1
 NUMBER .FILL #1
-ORIGIN .FILL #0
 
 SPACE .FILL x20
 DECCONV .FILL x30
