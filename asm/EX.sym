@@ -1,0 +1,13 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	DECCONV                 301A
+//	DIVISION                3002
+//	DIVRESULT               301C
+//	DIVSTRING               301D
+//	LEFT                    3033
+//	LOOPD                   3006
+//	NEGATIVE                300B
+//	REMRESULT               301B
+//	REMSTRING               3028
+//	RIGHT                   3034
+//	ZERO                    300D

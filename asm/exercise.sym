@@ -1,7 +1,28 @@
 //Symbol Name		Page Address
 //----------------	------------
-//	BIF                     3006
-//	FIBn                    3015
-//	GOHERE                  3005
-//	INTn                    3014
-//	LOOP                    300D
+//	BASE                    30A0
+//	CALCULATE               302B
+//	CHAR                    30A1
+//	COUNT                   309B
+//	DIGIT                   309C
+//	EQUAL                   3026
+//	EXIT                    3067
+//	FIBO                    303C
+//	FIB_BASE                305B
+//	FIB_END                 305D
+//	Fibonacci               303F
+//	INPUT                   3000
+//	LEFT                    30A2
+//	LOOP                    3008
+//	MEMORYSPACE             3091
+//	MESSAGE                 3068
+//	NEWLINE                 309D
+//	NUMBER                  30A4
+//	ONEDIGIT                309F
+//	OUTPUT                  3014
+//	RIGHT                   30A3
+//	SINCAL                  3037
+//	SINGLE                  301A
+//	TIMES                   3030
+//	TWO                     301F
+//	TWODIGIT                309E
