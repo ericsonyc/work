@@ -1,153 +1,83 @@
-.ORIG x3000
-INPUT LEA R0,MESSAGE
-      PUTS
-      AND R0,R0,#0
-      AND R1,R1,#0
-      AND R6,R6,#0  ;preserve the address of memoryspace
-      AND R3,R3,#0  ;preserve the number of digits
-      LEA R6,MEMORYSPACE
-      ADD R1,R6,#0
-LOOP 
-      GETC
-      ST R0,COUNT
-      OUT
+ .ORIG x3000
+            LD    R6,INIT_PTR   ; load initial stack pointer
+            LD    R5,INIT_PTR   ; load initial frame pointer
+            BR    MAIN
 
-      LD R7,COUNT
-      LD R2,NEWLINE
-      ADD R7,R7,R2
-      BRz OUTPUT
-      STR R0,R1,#0
-      ADD R1,R1,#1
-      ADD R3,R3,#1
-      ST R3,NUMBER
-      ;AND R4,R4,#0
-      ;ADD R4,R4,R1 ;preserve the single digit
-      BR LOOP
+INIT_PTR    .FILL x4001
+            
+MAIN        
+;; setup caller portion of activation record
+;; push function parameters
+            AND   R2,R2,#0      ; initialize R2 to 5
+            ADD   R2,R2,#5      ; initialize R2 to 5
+ 
+            ADD   R6,R6,#-1     ; Push step 1: decrement stack pointer
+            STR   R2,R6,#0      ; Push step 2: copy param val=5 to stack
+            JSR   FACTORIAL     ; call factorial
+;; tear down caller portion of activation record
+;; push function parameters
+            LDR   R0,R6,#0      ; load result of call into a register
+            ADD   R6,R6,#1      ; Pop return value
+            ADD   R6,R6,#1      ; Pop parameter val
+            
+            HALT
 
-OUTPUT
-      ;AND R0,R0,#0
-      ;ADD R0,R0,R6
-      ;PUTS
-      LD R7,DIGIT
-      ADD R7,R7,R3
-      BRp INPUT
-      ADD R3,R3,#-1
-      BRz SINGLE
-      BR TWO
+FACTORIAL   
+;; setup callee portion of activation record
+;; allocate space for return value, save ret address
+;; save frame pointer, allocate space for local variables
+            ADD   R6,R6,#-1     ; Allocate space for return value
+            ADD   R6,R6,#-1     ; Push step 1: decrement stack pointer
+            STR   R7,R6,#0      ; Push step 2: save return address (R7) to stack
+            ADD   R6,R6,#-1     ; Push step 1: decrement stack pointer
+            STR   R5,R6,#0      ; Push step 2: save frame pointer (R5) to stack
+            ADD   R5,R6,#-1     ; Set factorial's frame pointer
+            ADD   R6,R6,#-1     ; Allocate space for 1 local variable (result)
+            
+;; factorial function body *starts* here
+            LDR   R1,R5,#4      ; Load parameter val into R1. (frame pointer(R5) + 4)
+            ADD   R0,R1,#-1      ; Test val ( set condition codes )
+            BRnz  FACT_ELSE
 
-SINGLE
-      ;STR R4,R1,#1;AND R4,R4,#0;STR R4,R1,#0;ADD R1,R1,#1
-      LDR R7,R6,#0
-      LD R2,TWODIGIT
-      ADD R7,R7,R2
-      BRn INPUT
-      BR SINCAL    
+FACT_IF     ADD   R2,R1,#-1     ; Compute val-1
+            
+;; setup caller portion of activation record
+;; push function parameters
+            ADD   R6,R6,#-1     ; Push step 1: decrement stack pointer
+            STR   R2,R6,#0      ; Push step 2: copy param val=val-1
+            JSR   FACTORIAL     ; Call factorial
+;; tear down caller portion of activation record
+;; push function parameters
+            LDR   R0,R6,#0      ; Load result of call into a register
+            ADD   R6,R6,#1      ; Pop return value
+            ADD   R6,R6,#1      ; Pop parameter val
+            
+;; resume computation: multiply R0*R1 loop
+;; R0=factorial(val-1), R1=val (loop counter), R2=result
+            LDR   R1,R5,#4      ; Reset R2 to val (would need to be saved on the stack otherwise)
+            AND   R2,R2,#0      ; Initialize result register to 0
+FACT_IFLOOP ADD   R2,R2,R0      ; One add of multiply R0*R1
+            ADD   R1,R1,#-1     ; Decrement loop counter and test
+            BRp   FACT_IFLOOP    
+            
+            STR   R2,R5,#0      ; Assign to result local variable (frame pointer + 0)
+            BR    FACT_FI
 
-TWO ;judge the input
-      AND R1,R1,#0
-      ADD R1,R1,R6
-      LDR R7,R6,#0
-      LD R2,ONEDIGIT
-      ADD R7,R7,R2
-      BRz EQUAL
-      BRp INPUT
-EQUAL 
-      ADD R1,R1,#1
-      LDR R7,R1,#0
-      LD R2,TWODIGIT
-      ADD R7,R7,R2
-      BRp INPUT
-      
+FACT_ELSE   AND   R2,R2,#0      ; Initialize R2 to 1
+            ADD   R2,R2,#1      ; Initialize R2 to 1
+            STR   R2,R5,#0      ; Assign to result local variable (frame pointer + 0)
+            
+FACT_FI     LDR   R0,R5,#0      ; Load local result into a register
+			STR   R0,R5,#3      ; Copy return value to location on stack ( frame pointer + 3 )
 
-CALCULATE
-      LD R0,CHAR      
-      LDR R7,R6,#0
-      ADD R7,R7,R0
-      ;LD R3,NUMBER
-      ;ADD R3,R3,#-1
-      ;BRz FIBONACCI
-      AND R3,R3,#0
-      LD R2,BASE
-TIMES
-      ADD R3,R3,R2
-      ADD R7,R7,#-1
-      BRp TIMES
-      LDR R7,R6,#1
-      ADD R7,R7,R0
-      ADD R3,R3,R7
-      BR FIBO
-SINCAL
-      LDR R7,R6,#0
-      LD R0,CHAR
-      ADD R7,R7,R0
-      AND R3,R3,#0
-      ADD R3,R3,R7
-        
-FIBO
-      AND R0,R0,#0
-      ADD R0,R3,#0
-      JSR Fibonacci
-
-Fibonacci:
-      ADD R6,R6,#-2
-      STR R7,R6,#0
-      ADD R6,R6,#-1
-      STR R5,R6,#0
-      ADD R5,R6,#-1
-      ADD R6,R6,#-2
-      
-      LDR R0,R5,#4
-      BRz FIB_BASE
-      ADD R0,R0,#-1
-      BRz FIB_BASE
-      LDR R0,R5,#4
-      ADD R0,R0,#-1
-      ADD R6,R6,#-1
-      STR R0,R6,#0
-      JSR Fibonacci 
-
-      LDR R0,R6,#0
-      ADD R6,R6,#1
-      STR R0,R5,#-1
-      LDR R0,R5,#4
-      ADD R0,R0,#-2
-      ADD R6, R6, #-1 ; push n-2
-      STR R0, R6, #0
-      JSR Fibonacci ; call self 
-      
-      LDR R0, R6, #0 ; pop return value
-      ADD R6, R6, #1
-      LDR R1, R5, #-1 ; read temp
-      ADD R0, R0, R1 ; Fib(n-1) + Fib(n-2)
-      BRnzp FIB_END ; all done
-FIB_BASE 
-      AND R0, R0, #0 ; base case ¨C return 1
-      ADD R0, R0, #1
-FIB_END 
-      STR R0, R5, #3 ; write return value (R0)
-      ADD R6, R5, #1 ; pop local variables
-      LDR R5, R6, #0 ; pop dynamic link
-      ADD R6, R6, #1
-      LDR R7, R6, #0 ; pop return address
-      ADD R6, R6, #1
-      AND R0,R0,#0
-      ADD R0,R0,R7
-      PUTS
-      RET 
-
-EXIT 
-      HALT
-MESSAGE .STRINGZ "Please input a number between 3 and 23 :"
-MEMORYSPACE .BLKW 10
-COUNT .FILL #0
-DIGIT .FILL #-2
-NEWLINE .FILL #-10
-TWODIGIT .FILL #-51
-ONEDIGIT .FILL #-50
-BASE .FILL #10
-CHAR .FILL #-48
-LEFT .FILL #1
-RIGHT .FILL #1
-NUMBER .FILL #1
-
-.END
+;; factorial function body *ends* here
+;; tear down callee portion of activation record
+            ADD   R6,R6,#1      ; Pop local variables
+            LDR   R5,R6,#0      ; Restore caller's frame pointer
+            ADD   R6,R6,#1      ; Pop frame pointer
+            LDR   R7,R6,#0      ; Restore return address
+            ADD   R6,R6,#1      ; Pop return address
+            
+            RET                 ; Return from factorial
+            
+            .END

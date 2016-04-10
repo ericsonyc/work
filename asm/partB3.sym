@@ -1,0 +1,33 @@
+//Symbol Name		Page Address
+//----------------	------------
+//	ADDRESS                 3081
+//	BASE                    3078
+//	CALCULATE               302B
+//	CHAR                    3079
+//	CHARACTER               3080
+//	COUNT                   3073
+//	DATA                    307F
+//	DIGIT                   3074
+//	EQUAL                   3026
+//	FIBONACCI               303C
+//	FIB_BASE                30A6
+//	FIB_END                 30A8
+//	Fibonacci               308A
+//	INIT_PTR                307E
+//	INPUT                   3000
+//	LEFT                    307A
+//	LOOP                    3008
+//	MAIN                    3082
+//	MEMORYSPACE             3069
+//	MESSAGE                 3040
+//	NEWLINE                 3075
+//	NUMBER                  307C
+//	ONEDIGIT                3077
+//	ORIGIN                  307D
+//	OUTPUT                  3014
+//	RIGHT                   307B
+//	SINCAL                  3037
+//	SINGLE                  301A
+//	TIMES                   3030
+//	TWO                     301F
+//	TWODIGIT                3076

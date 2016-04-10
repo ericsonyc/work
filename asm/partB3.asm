@@ -11,7 +11,6 @@ LOOP
       GETC
       ST R0,COUNT
       OUT
-
       LD R7,COUNT
       LD R2,NEWLINE
       ADD R7,R7,R2
@@ -82,44 +81,98 @@ SINCAL
       ADD R7,R7,R0
       AND R3,R3,#0
       ADD R3,R3,R7
-
-
         
 FIBONACCI
-      LD R0,LEFT
-      LD R1,RIGHT
-      ADD R2,R0,R1
-      ST R1,LEFT
-      ST R2,RIGHT
-      LEA R4,DIVNUMBER
-      AND R1,R1,#0
-      AND R2,R2,#0
-      ADD R1,R1,#5
-      ADD R2,R2,#1
-      BR OUTCONSOLE     
-CC    
-      LD R0,SPACE
-      OUT
-      ADD R3,R3,#-1
-      BRp FIBONACCI
-      BR EXIT
+      
+      LD    R6,INIT_PTR   ; load initial stack pointer
+      LD    R5,INIT_PTR   ; load initial frame pointer
+      ADD R5,R5,#1
+      BR    MAIN
 
-OUTCONSOLE
-      LDR R7,R4,#0
-      BR DIVISION
-TEMP
-      ADD R6,R6,#0
-      BRz ZEROC
-      LD R0,DIVRESULT
-      LD R7,DECCONV
-      ADD R0,R0,R7
-      OUT
-ZEROC  ;ADD R2,R2,#1
-      ADD R4,R4,R2
-      LD R0,REMRESULT
-      ADD R1,R1,#-1
-      BRz CC
-      BR OUTCONSOLE         
+MESSAGE .STRINGZ "Please input a number between 3 and 23 :"
+MEMORYSPACE .BLKW 10
+COUNT .FILL #0
+DIGIT .FILL #-2
+NEWLINE .FILL #-10
+TWODIGIT .FILL #-51
+ONEDIGIT .FILL #-50
+BASE .FILL #10
+CHAR .FILL #-48
+LEFT .FILL #1
+RIGHT .FILL #1
+NUMBER .FILL #1
+ORIGIN .FILL #0
+INIT_PTR .FILL x4000
+DATA .FILL #0
+CHARACTER .FILL x30
+ADDRESS .FILL #0
+
+SPACE .FILL x20
+DECCONV .FILL x30
+REMRESULT .FILL #0
+DIVRESULT .FILL #0
+DIVNUMBER .FILL #10000
+          .FILL #1000
+          .FILL #100
+          .FILL #10
+          .FILL #1
+
+MAIN
+;; setup caller portion of activation record
+;; push function parameters
+            ADD R3,R3,#-1
+            AND R1,R1,#1
+LOOPFibo            
+            STR   R1,R6,#0      ; Push step 2: copy param val=5 to stack
+            JSR   Fibonacci; call factorial
+
+            LDR   R0,R6,#0      ; load result of call into a register
+            LD R4,CHARACTER
+            ADD R0,R0,R4
+            OUT
+            BR LOOPFibo
+            HALT
+
+
+Fibonacci
+	ADD R6, R6, #-2 ; skip ret val, push ret addr
+ 	STR R7, R6, #0
+	ADD R6, R6, #-1 ; push dynamic link
+	STR R5, R6, #0
+ 	ADD R5, R6, #-1 ; set frame pointer
+ 	ADD R6, R6, #-2 ; space for locals and temps
+ 	LDR R0, R5, #4 ; load n
+ 	BRz FIB_BASE ; check for terminal cases
+ 	ADD R0, R0, #-1
+ 	BRz FIB_BASE 
+	LDR R0, R5, #4 ; read parameter n
+ 	ADD R0, R0, #-1 ; calculate n-1
+ 	ADD R6, R6, #-1 ; push n-1
+ 	STR R0, R6, #0
+ 	JSR Fibonacci ; call self
+        
+ 	LDR R0, R6, #0 ; pop return value
+ 	ADD R6, R6, #1
+ 	STR R0, R5, #-1 ; store in temp
+ 	LDR R0, R5, #4 ; read parameter n
+ 	ADD R0, R0, #-2 ; calculate n-2
+ 	ADD R6, R6, #-1 ; push n-2
+ 	STR R0, R6, #0
+ 	JSR Fibonacci ; call self 
+	LDR R0, R6, #0 ; pop return value
+ 	ADD R6, R6, #1
+ 	LDR R1, R5, #-1 ; read temp
+ 	ADD R0, R0, R1 ; Fib(n-1) + Fib(n-2)
+ 	BRnzp FIB_END ; all done
+	FIB_BASE AND R0, R0, #0 ; base case ¨C return 1
+ 	ADD R0, R0, #1
+	FIB_END STR R0, R5, #3 ; write return value (R0)
+ 	ADD R6, R5, #1 ; pop local variables
+ 	LDR R5, R6, #0 ; pop dynamic link
+ 	ADD R6, R6, #1
+ 	LDR R7, R6, #0 ; pop return address
+ 	ADD R6, R6, #1
+ RET
 
 DIVISION
       AND R5, R5, 0   ; Zero out R5 /This is the remainder
@@ -159,29 +212,4 @@ ZERO
       ;PUTC            ; Print it.
       BR TEMP
 
-
-EXIT 
-      HALT
-MESSAGE .STRINGZ "Please input a number between 3 and 23 :"
-MEMORYSPACE .BLKW 10
-COUNT .FILL #0
-DIGIT .FILL #-2
-NEWLINE .FILL #-10
-TWODIGIT .FILL #-51
-ONEDIGIT .FILL #-50
-BASE .FILL #10
-CHAR .FILL #-48
-LEFT .FILL #1
-RIGHT .FILL #1
-NUMBER .FILL #1
-
-SPACE .FILL x20
-DECCONV .FILL x30
-REMRESULT .FILL #0
-DIVRESULT .FILL #0
-DIVNUMBER .FILL #10000
-          .FILL #1000
-          .FILL #100
-          .FILL #10
-          .FILL #1
 .END
