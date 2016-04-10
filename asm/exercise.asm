@@ -1,62 +1,23 @@
-.ORIG x3000
+.ORIG x3000 
+LD R3, N_VAL
 
-    LEA R0, PROMPT
-    PUTs                ; TRAP x22
-    LD R0, ENTER
-    OUT                 ; TRAP x21
-    IN                  ; TRAP x23
+Loop BRz Done ; check if last operation flagged z-bit
+  LD R0, I_VAL ; load i
+  LD R1, J_VAL ; load j
 
-    AND R5, R5, #0      ; clear R5
-    ADD R5, R5, R0      ; Store the user input into R5
+  ADD R2, R0, R1 ; t = i + j
 
-    AND R1, R1, #0      ; clear R1, R1 is our loop count
-    LD R2, MASK_COUNT   ; load our mask limit into R2
-    NOT R2, R2          ; Invert the bits in R2
-    ADD R2, R2, #1      ; because of 2's compliment we have
-                        ; to add 1 to R2 to get -4
-WHILE_LOOP
-    ADD R3, R1, R2      ; Adding R1, and R2 to see if they'll
-                        ; will equal zero
-    BRz LOOP_END        ; If R1+R2=0 then we've looped 4
-                        ; times and need to exit
+  ST R1, I_VAL ; j = i (R1)
+  ST R2, J_VAL ; j = t (R2)
 
-    LEA R3, BINARY      ; load the first memory location 
-                        ; in our binary mask array
-    ADD R3, R3, R1      ; use R1 as our array index and
-                        ; add that to the first array location
-    LDR R4, R3, #0      ; load the next binary mask into R4
-
-    AND R4, R4, R5      ; AND the user input with the 
-                        ; binary mask
-    BRz NO_BIT
-    LD R0, ASCII_ONE
-    OUT                 ; TRAP x21
-    ADD R1, R1, #1      ; add one to our loop counter
-    BRnzp WHILE_LOOP    ; loop again
-NO_BIT
-    LD R0, ASCII_ZERO
-    OUT                 ; TRAP x21
-
-    ADD R1, R1, #1      ; add one to our loop counter
-    BRnzp WHILE_LOOP    ; loop again
-LOOP_END
-
-    LD R0, ENTER
-    OUT                 ; TRAP x21
-    HALT                ; TRAP x25
-
-; Binary Maps
-BINARY  .FILL   b0000000000001000
-        .FILL   b0000000000000100
-        .FILL   b0000000000000010
-        .FILL   b0000000000000001
-        .FILL   b0000000000000000
-
-; Stored Values
-ENTER       .FILL   x000A
-ASCII_ZERO  .FILL   x0030
-ASCII_ONE   .FILL   x0031
-MASK_COUNT  .FILL   x04     ; loop limit = 4
-PROMPT      .STRINGZ "Enter a number from 0-9"
-
-.END
+  ADD R3, R3, -1 ; count down n
+  BR Loop
+	
+Done ST R2, RESULT ; superfluous, fib(n) result already in J_VAL
+ 
+HALT
+	RESULT	.FILL x0000 
+	I_VAL	.FILL x0001
+	J_VAL	.FILL x0000
+	N_VAL	.FILL 20 ; n -> fib(n)
+	.END 

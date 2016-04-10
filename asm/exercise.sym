@@ -1,11 +1,7 @@
 //Symbol Name		Page Address
 //----------------	------------
-//	ASCII_ONE               3024
-//	ASCII_ZERO              3023
-//	BINARY                  301D
-//	ENTER                   3022
-//	LOOP_END                301A
-//	MASK_COUNT              3025
-//	NO_BIT                  3016
-//	PROMPT                  3026
-//	WHILE_LOOP              300B
+//	BIF                     3006
+//	FIBn                    3015
+//	GOHERE                  3005
+//	INTn                    3014
+//	LOOP                    300D
