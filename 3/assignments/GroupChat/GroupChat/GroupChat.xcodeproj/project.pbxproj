@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		791FFE341CDC2365000097AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE331CDC2365000097AB /* main.m */; };
+		791FFE371CDC2365000097AB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE361CDC2365000097AB /* AppDelegate.m */; };
+		791FFE3A1CDC2365000097AB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE391CDC2365000097AB /* ViewController.m */; };
+		791FFE401CDC2365000097AB /* GroupChat.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE3E1CDC2365000097AB /* GroupChat.xcdatamodeld */; };
+		791FFE421CDC2365000097AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE411CDC2365000097AB /* Assets.xcassets */; };
+		791FFE451CDC2365000097AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE431CDC2365000097AB /* LaunchScreen.storyboard */; };
+		791FFE541CDC23CA000097AB /* MHTabBarActiveTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE4C1CDC23CA000097AB /* MHTabBarActiveTab.png */; };
+		791FFE551CDC23CA000097AB /* MHTabBarActiveTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE4D1CDC23CA000097AB /* MHTabBarActiveTab@2x.png */; };
+		791FFE561CDC23CA000097AB /* MHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE4F1CDC23CA000097AB /* MHTabBarController.m */; };
+		791FFE571CDC23CA000097AB /* MHTabBarInactiveTab.png in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE501CDC23CA000097AB /* MHTabBarInactiveTab.png */; };
+		791FFE581CDC23CA000097AB /* MHTabBarInactiveTab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE511CDC23CA000097AB /* MHTabBarInactiveTab@2x.png */; };
+		791FFE591CDC23CA000097AB /* MHTabBarIndicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE521CDC23CA000097AB /* MHTabBarIndicator.png */; };
+		791FFE5A1CDC23CA000097AB /* MHTabBarIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE531CDC23CA000097AB /* MHTabBarIndicator@2x.png */; };
+		791FFE5D1CDC24E7000097AB /* AddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE5C1CDC24E7000097AB /* AddController.m */; };
+		791FFE5F1CDC293B000097AB /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE5E1CDC293B000097AB /* RecordCell.xib */; };
+		791FFE631CDC2B5A000097AB /* Record.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE621CDC2B5A000097AB /* Record.m */; };
+		791FFE651CDC2C48000097AB /* RecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE641CDC2C48000097AB /* RecordCell.m */; };
+		791FFE681CDC2DE5000097AB /* RecordController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE671CDC2DE5000097AB /* RecordController.m */; };
+		791FFE6B1CDC5066000097AB /* ContactController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE6A1CDC5066000097AB /* ContactController.m */; };
+		791FFE6E1CDC533A000097AB /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE6D1CDC5339000097AB /* Contact.m */; };
+		791FFE701CDC53C5000097AB /* ContactCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE6F1CDC53C5000097AB /* ContactCell.xib */; };
+		791FFE731CDC55C4000097AB /* ContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE721CDC55C4000097AB /* ContactCell.m */; };
+		791FFE751CDC5D01000097AB /* contact.png in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE741CDC5D01000097AB /* contact.png */; };
+		791FFE781CDC5E4F000097AB /* GroupController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE771CDC5E4F000097AB /* GroupController.m */; };
+		791FFE7B1CDC5F3F000097AB /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE7A1CDC5F3F000097AB /* Group.m */; };
+		791FFE7D1CDC5FFE000097AB /* GroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE7C1CDC5FFE000097AB /* GroupCell.xib */; };
+		791FFE801CDC6175000097AB /* GroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE7F1CDC6175000097AB /* GroupCell.m */; };
+		791FFE821CDC6A3E000097AB /* Search.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE811CDC6A3E000097AB /* Search.xib */; };
+		791FFE861CDC6BE9000097AB /* SearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE851CDC6BE9000097AB /* SearchView.m */; };
+		791FFE881CDC8463000097AB /* AddGroup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE871CDC8463000097AB /* AddGroup.xib */; };
+		791FFE8B1CDC8684000097AB /* AddView.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE8A1CDC8684000097AB /* AddView.m */; };
+		791FFE931CDCC5CF000097AB /* AddContact.xib in Resources */ = {isa = PBXBuildFile; fileRef = 791FFE921CDCC5CF000097AB /* AddContact.xib */; };
+		791FFE991CDCCAAC000097AB /* ContactAddController.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE981CDCCAAC000097AB /* ContactAddController.m */; };
+		791FFE9C1CDCCB98000097AB /* AddContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 791FFE9B1CDCCB98000097AB /* AddContact.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		791FFE2F1CDC2365000097AB /* GroupChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroupChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		791FFE331CDC2365000097AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		791FFE351CDC2365000097AB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		791FFE361CDC2365000097AB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		791FFE381CDC2365000097AB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		791FFE391CDC2365000097AB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		791FFE3F1CDC2365000097AB /* GroupChat.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GroupChat.xcdatamodel; sourceTree = "<group>"; };
+		791FFE411CDC2365000097AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		791FFE441CDC2365000097AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		791FFE461CDC2365000097AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		791FFE4C1CDC23CA000097AB /* MHTabBarActiveTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarActiveTab.png; sourceTree = "<group>"; };
+		791FFE4D1CDC23CA000097AB /* MHTabBarActiveTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarActiveTab@2x.png"; sourceTree = "<group>"; };
+		791FFE4E1CDC23CA000097AB /* MHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTabBarController.h; sourceTree = "<group>"; };
+		791FFE4F1CDC23CA000097AB /* MHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTabBarController.m; sourceTree = "<group>"; };
+		791FFE501CDC23CA000097AB /* MHTabBarInactiveTab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarInactiveTab.png; sourceTree = "<group>"; };
+		791FFE511CDC23CA000097AB /* MHTabBarInactiveTab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarInactiveTab@2x.png"; sourceTree = "<group>"; };
+		791FFE521CDC23CA000097AB /* MHTabBarIndicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MHTabBarIndicator.png; sourceTree = "<group>"; };
+		791FFE531CDC23CA000097AB /* MHTabBarIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MHTabBarIndicator@2x.png"; sourceTree = "<group>"; };
+		791FFE5B1CDC24E7000097AB /* AddController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddController.h; sourceTree = "<group>"; };
+		791FFE5C1CDC24E7000097AB /* AddController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddController.m; sourceTree = "<group>"; };
+		791FFE5E1CDC293B000097AB /* RecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
+		791FFE601CDC2A7F000097AB /* RecordCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordCell.h; sourceTree = "<group>"; };
+		791FFE611CDC2AE9000097AB /* Record.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Record.h; sourceTree = "<group>"; };
+		791FFE621CDC2B5A000097AB /* Record.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Record.m; sourceTree = "<group>"; };
+		791FFE641CDC2C48000097AB /* RecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCell.m; sourceTree = "<group>"; };
+		791FFE661CDC2DA1000097AB /* RecordController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecordController.h; sourceTree = "<group>"; };
+		791FFE671CDC2DE5000097AB /* RecordController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordController.m; sourceTree = "<group>"; };
+		791FFE691CDC5019000097AB /* ContactController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactController.h; sourceTree = "<group>"; };
+		791FFE6A1CDC5066000097AB /* ContactController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactController.m; sourceTree = "<group>"; };
+		791FFE6C1CDC529B000097AB /* Contact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		791FFE6D1CDC5339000097AB /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		791FFE6F1CDC53C5000097AB /* ContactCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactCell.xib; sourceTree = "<group>"; };
+		791FFE711CDC552D000097AB /* ContactCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
+		791FFE721CDC55C4000097AB /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
+		791FFE741CDC5D01000097AB /* contact.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = contact.png; sourceTree = "<group>"; };
+		791FFE761CDC5DF6000097AB /* GroupController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupController.h; sourceTree = "<group>"; };
+		791FFE771CDC5E4F000097AB /* GroupController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupController.m; sourceTree = "<group>"; };
+		791FFE791CDC5EB2000097AB /* Group.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		791FFE7A1CDC5F3F000097AB /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		791FFE7C1CDC5FFE000097AB /* GroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupCell.xib; sourceTree = "<group>"; };
+		791FFE7E1CDC60F0000097AB /* GroupCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GroupCell.h; sourceTree = "<group>"; };
+		791FFE7F1CDC6175000097AB /* GroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupCell.m; sourceTree = "<group>"; };
+		791FFE811CDC6A3E000097AB /* Search.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Search.xib; sourceTree = "<group>"; };
+		791FFE841CDC6BB5000097AB /* SearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchView.h; sourceTree = "<group>"; };
+		791FFE851CDC6BE9000097AB /* SearchView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchView.m; sourceTree = "<group>"; };
+		791FFE871CDC8463000097AB /* AddGroup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddGroup.xib; sourceTree = "<group>"; };
+		791FFE891CDC85EE000097AB /* AddView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddView.h; sourceTree = "<group>"; };
+		791FFE8A1CDC8684000097AB /* AddView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddView.m; sourceTree = "<group>"; };
+		791FFE921CDCC5CF000097AB /* AddContact.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddContact.xib; sourceTree = "<group>"; };
+		791FFE941CDCC6B2000097AB /* AddContact.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddContact.h; sourceTree = "<group>"; };
+		791FFE981CDCCAAC000097AB /* ContactAddController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactAddController.m; sourceTree = "<group>"; };
+		791FFE9A1CDCCAD3000097AB /* ContactAddController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactAddController.h; sourceTree = "<group>"; };
+		791FFE9B1CDCCB98000097AB /* AddContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddContact.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		791FFE2C1CDC2365000097AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		791FFE261CDC2365000097AB = {
+			isa = PBXGroup;
+			children = (
+				791FFE311CDC2365000097AB /* GroupChat */,
+				791FFE301CDC2365000097AB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		791FFE301CDC2365000097AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				791FFE2F1CDC2365000097AB /* GroupChat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		791FFE311CDC2365000097AB /* GroupChat */ = {
+			isa = PBXGroup;
+			children = (
+				791FFE741CDC5D01000097AB /* contact.png */,
+				791FFE4C1CDC23CA000097AB /* MHTabBarActiveTab.png */,
+				791FFE4D1CDC23CA000097AB /* MHTabBarActiveTab@2x.png */,
+				791FFE4E1CDC23CA000097AB /* MHTabBarController.h */,
+				791FFE4F1CDC23CA000097AB /* MHTabBarController.m */,
+				791FFE501CDC23CA000097AB /* MHTabBarInactiveTab.png */,
+				791FFE511CDC23CA000097AB /* MHTabBarInactiveTab@2x.png */,
+				791FFE521CDC23CA000097AB /* MHTabBarIndicator.png */,
+				791FFE531CDC23CA000097AB /* MHTabBarIndicator@2x.png */,
+				791FFE351CDC2365000097AB /* AppDelegate.h */,
+				791FFE361CDC2365000097AB /* AppDelegate.m */,
+				791FFE381CDC2365000097AB /* ViewController.h */,
+				791FFE391CDC2365000097AB /* ViewController.m */,
+				791FFE411CDC2365000097AB /* Assets.xcassets */,
+				791FFE431CDC2365000097AB /* LaunchScreen.storyboard */,
+				791FFE461CDC2365000097AB /* Info.plist */,
+				791FFE3E1CDC2365000097AB /* GroupChat.xcdatamodeld */,
+				791FFE321CDC2365000097AB /* Supporting Files */,
+				791FFE5E1CDC293B000097AB /* RecordCell.xib */,
+				791FFE601CDC2A7F000097AB /* RecordCell.h */,
+				791FFE641CDC2C48000097AB /* RecordCell.m */,
+				791FFE611CDC2AE9000097AB /* Record.h */,
+				791FFE621CDC2B5A000097AB /* Record.m */,
+				791FFE661CDC2DA1000097AB /* RecordController.h */,
+				791FFE671CDC2DE5000097AB /* RecordController.m */,
+				791FFE691CDC5019000097AB /* ContactController.h */,
+				791FFE6A1CDC5066000097AB /* ContactController.m */,
+				791FFE6C1CDC529B000097AB /* Contact.h */,
+				791FFE6D1CDC5339000097AB /* Contact.m */,
+				791FFE6F1CDC53C5000097AB /* ContactCell.xib */,
+				791FFE711CDC552D000097AB /* ContactCell.h */,
+				791FFE721CDC55C4000097AB /* ContactCell.m */,
+				791FFE761CDC5DF6000097AB /* GroupController.h */,
+				791FFE771CDC5E4F000097AB /* GroupController.m */,
+				791FFE791CDC5EB2000097AB /* Group.h */,
+				791FFE7A1CDC5F3F000097AB /* Group.m */,
+				791FFE7C1CDC5FFE000097AB /* GroupCell.xib */,
+				791FFE7E1CDC60F0000097AB /* GroupCell.h */,
+				791FFE7F1CDC6175000097AB /* GroupCell.m */,
+				791FFE811CDC6A3E000097AB /* Search.xib */,
+				791FFE841CDC6BB5000097AB /* SearchView.h */,
+				791FFE851CDC6BE9000097AB /* SearchView.m */,
+				791FFE871CDC8463000097AB /* AddGroup.xib */,
+				791FFE891CDC85EE000097AB /* AddView.h */,
+				791FFE8A1CDC8684000097AB /* AddView.m */,
+				791FFE5B1CDC24E7000097AB /* AddController.h */,
+				791FFE5C1CDC24E7000097AB /* AddController.m */,
+				791FFE921CDCC5CF000097AB /* AddContact.xib */,
+				791FFE941CDCC6B2000097AB /* AddContact.h */,
+				791FFE9B1CDCCB98000097AB /* AddContact.m */,
+				791FFE9A1CDCCAD3000097AB /* ContactAddController.h */,
+				791FFE981CDCCAAC000097AB /* ContactAddController.m */,
+			);
+			path = GroupChat;
+			sourceTree = "<group>";
+		};
+		791FFE321CDC2365000097AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				791FFE331CDC2365000097AB /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		791FFE2E1CDC2365000097AB /* GroupChat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 791FFE491CDC2365000097AB /* Build configuration list for PBXNativeTarget "GroupChat" */;
+			buildPhases = (
+				791FFE2B1CDC2365000097AB /* Sources */,
+				791FFE2C1CDC2365000097AB /* Frameworks */,
+				791FFE2D1CDC2365000097AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GroupChat;
+			productName = GroupChat;
+			productReference = 791FFE2F1CDC2365000097AB /* GroupChat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		791FFE271CDC2365000097AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = student;
+				TargetAttributes = {
+					791FFE2E1CDC2365000097AB = {
+						CreatedOnToolsVersion = 7.1;
+					};
+				};
+			};
+			buildConfigurationList = 791FFE2A1CDC2365000097AB /* Build configuration list for PBXProject "GroupChat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 791FFE261CDC2365000097AB;
+			productRefGroup = 791FFE301CDC2365000097AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				791FFE2E1CDC2365000097AB /* GroupChat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		791FFE2D1CDC2365000097AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				791FFE821CDC6A3E000097AB /* Search.xib in Resources */,
+				791FFE931CDCC5CF000097AB /* AddContact.xib in Resources */,
+				791FFE751CDC5D01000097AB /* contact.png in Resources */,
+				791FFE5F1CDC293B000097AB /* RecordCell.xib in Resources */,
+				791FFE591CDC23CA000097AB /* MHTabBarIndicator.png in Resources */,
+				791FFE451CDC2365000097AB /* LaunchScreen.storyboard in Resources */,
+				791FFE571CDC23CA000097AB /* MHTabBarInactiveTab.png in Resources */,
+				791FFE5A1CDC23CA000097AB /* MHTabBarIndicator@2x.png in Resources */,
+				791FFE551CDC23CA000097AB /* MHTabBarActiveTab@2x.png in Resources */,
+				791FFE7D1CDC5FFE000097AB /* GroupCell.xib in Resources */,
+				791FFE421CDC2365000097AB /* Assets.xcassets in Resources */,
+				791FFE581CDC23CA000097AB /* MHTabBarInactiveTab@2x.png in Resources */,
+				791FFE881CDC8463000097AB /* AddGroup.xib in Resources */,
+				791FFE701CDC53C5000097AB /* ContactCell.xib in Resources */,
+				791FFE541CDC23CA000097AB /* MHTabBarActiveTab.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		791FFE2B1CDC2365000097AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				791FFE801CDC6175000097AB /* GroupCell.m in Sources */,
+				791FFE731CDC55C4000097AB /* ContactCell.m in Sources */,
+				791FFE681CDC2DE5000097AB /* RecordController.m in Sources */,
+				791FFE3A1CDC2365000097AB /* ViewController.m in Sources */,
+				791FFE9C1CDCCB98000097AB /* AddContact.m in Sources */,
+				791FFE991CDCCAAC000097AB /* ContactAddController.m in Sources */,
+				791FFE8B1CDC8684000097AB /* AddView.m in Sources */,
+				791FFE371CDC2365000097AB /* AppDelegate.m in Sources */,
+				791FFE781CDC5E4F000097AB /* GroupController.m in Sources */,
+				791FFE631CDC2B5A000097AB /* Record.m in Sources */,
+				791FFE5D1CDC24E7000097AB /* AddController.m in Sources */,
+				791FFE861CDC6BE9000097AB /* SearchView.m in Sources */,
+				791FFE341CDC2365000097AB /* main.m in Sources */,
+				791FFE6B1CDC5066000097AB /* ContactController.m in Sources */,
+				791FFE7B1CDC5F3F000097AB /* Group.m in Sources */,
+				791FFE6E1CDC533A000097AB /* Contact.m in Sources */,
+				791FFE401CDC2365000097AB /* GroupChat.xcdatamodeld in Sources */,
+				791FFE651CDC2C48000097AB /* RecordCell.m in Sources */,
+				791FFE561CDC23CA000097AB /* MHTabBarController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		791FFE431CDC2365000097AB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				791FFE441CDC2365000097AB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		791FFE471CDC2365000097AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		791FFE481CDC2365000097AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		791FFE4A1CDC2365000097AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GroupChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = student.GroupChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		791FFE4B1CDC2365000097AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = GroupChat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = student.GroupChat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		791FFE2A1CDC2365000097AB /* Build configuration list for PBXProject "GroupChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				791FFE471CDC2365000097AB /* Debug */,
+				791FFE481CDC2365000097AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		791FFE491CDC2365000097AB /* Build configuration list for PBXNativeTarget "GroupChat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				791FFE4A1CDC2365000097AB /* Debug */,
+				791FFE4B1CDC2365000097AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		791FFE3E1CDC2365000097AB /* GroupChat.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				791FFE3F1CDC2365000097AB /* GroupChat.xcdatamodel */,
+			);
+			currentVersion = 791FFE3F1CDC2365000097AB /* GroupChat.xcdatamodel */;
+			path = GroupChat.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 791FFE271CDC2365000097AB /* Project object */;
+}

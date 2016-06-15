@@ -1,0 +1,3 @@
+Q1：LC3 just has the address with 16bits and the registers also has its max bits. So if we input a large value, it will exceed the capacity of the system.
+
+Q2：We allocate memory to the input characters which can only contain 10 characters. If we input more than 10 characters, it will be stored in the address after the allocated memory. This can cover the original data of that address.
